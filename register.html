@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>
+            Register
+        </title>
+        <!--===============================================================================================-->
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+
+        <!--===============================================================================================-->
+        <!--firebase configuration moved to config.js -->
+        <script src="js/config.js"></script>
+        <script src="js/registeruser.js"></script>
+        
+    </head>
+    <body>
+        <form>
+            <input type="text" id="user_id" name="username" placeholder="Name" required > <br> <br>
+            <input type="email" id="email_id"name="email" placeholder="Email" required > <br> <br>
+            <input type="password" id="password_id" name="password" placeholder="Password" required > <br> <br>
+            <select id="role_id" name="role">
+                <option value="#">Select</option>
+                <option value="admin">Admin</option>
+                <option value="doctor">Doctor</option>
+                <option value="guest">Guest</option>
+            </select>   <br> <br>
+            <button type="button" onclick="insertUser()"> Register </button>
+        </form>
+    </body>
+</html>

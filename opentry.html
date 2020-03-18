@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Registration</title>
+        <!--===============================================================================================-->	
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <!--===============================================================================================-->	
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->	
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="css/opregistration.css">
+        <script src="js/opentry.js"></script>
+    </head>
+    <body>
+        <form>
+            <div class="container register-form">
+                <div class="form">
+                    <div class="note">
+                        <p>OP Entry Form</p>
+                    </div>
+                    <div class="form-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Patient Name" value="" required/>
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder="Phone" value="" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder="Age" value="" required/>        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <label style="font-weight: bold;color: blue;">Gender</label>   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" checked>Male</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <label style="font-weight: bold;color: blue;">MAXILLA</label>                              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="teethnumber_id">
+                                    <button type="button" id="addteeth_id" onclick="addteeth()">Add</button><br><br>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="checkbox-inline"><input type="checkbox" value="">21</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">22</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">23</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">24</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">25</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">26</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">27</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">28</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <label style="font-weight: bold;color: blue;">MANDIBLE</label>                              
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="checkbox-inline"><input type="checkbox" value="">31</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">32</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">33</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">34</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">35</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">36</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">37</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">38</label>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="checkbox-inline"><input type="checkbox" value="">41</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">42</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">43</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">44</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">45</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">46</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">47</label>
+                                <label class="checkbox-inline"><input type="checkbox" value="">48</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                
+                            </div>
+                        </div>
+                        <button type="submit" class="btnSubmit">Submit</button>
+                    </div>
+                </div>
+            </div> 
+        </form>        
+    </body>    
+</html>
