@@ -37,7 +37,7 @@ function toggleSignIn() {
             
             //
             if(user) {
-                window.location.href = "opregistration.html"; //After successful login, user will be redirected to home.html
+                window.location.href = "opentry.html"; //After successful login, user will be redirected to home.html
             }
         });
         // [END authwithemail]

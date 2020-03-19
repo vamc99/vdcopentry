@@ -9,11 +9,27 @@
         <!--===============================================================================================-->	
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!--===============================================================================================-->	
+
+        <!--===============================================================================================-->
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+
+        <!--===============================================================================================-->
+        <!--firebase configuration moved to config.js -->
+        <script src="js/config.js"></script>
+    
         <link rel="stylesheet" type="text/css" href="css/opentry.css">
-        <script src="js/opentry.js"></script>
+        <script src="js/test.js"></script>
+       
     </head>
     <body>
-        <form>
+        <form onsubmit="return false" id="myForm" enctype='application/json'>
             <div class="container register-form">
                 <div class="form">
                     <div class="note">
@@ -23,24 +39,41 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Patient Name" value="" required/>
+                                    <input type="text" class="form-control" placeholder="Patient Name" name="pname" value="" required/>
                                 </div>
                             </div>                
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="Phone" value="" required/>
+                                    <input type="number" class="form-control" placeholder="Phone" name="phone" value="" required/>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="Age" value="" required/>        
+                                    <input type="number" class="form-control" placeholder="Age" name="age" value="" required/>        
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                               <div>
+                                   <label style="font-weight: bold;color: blue;">Patient</label>   
+                               </div>
+                           </div>
+                       </div>
+                       <div class="row">
+                           <div class="col-md-6">
+                               <label><input type="radio" name="patient" value="new"  class="radiobtn" checked>New</label>
+                           </div>
+                       </div>
+                       <div class="row">
+                           <div class="col-md-6">
+                                   <label><input type="radio" name="patient" value ="old" class="radiobtn">Old</label>
+                           </div>
+                       </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div>
@@ -50,12 +83,12 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label><input type="radio" name="optradio" value="Male"  class="radiobtn" checked>Male</label>
+                                <label><input type="radio" name="gender" value="Male"  class="radiobtn" checked>Male</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                    <label><input type="radio" name="optradio" value ="Female" class="radiobtn">Female</label>
+                                    <label><input type="radio" name="gender" value ="Female" class="radiobtn">Female</label>
                             </div>
                         </div>
                         <div class="row">
@@ -87,9 +120,11 @@
                             </div>
                         </div> 
                         <div class="row">
-                            <div class="col-md-6">           
+                            <div class="col-md-6">   
+                                <input type="text" class="form-control" placeholder="About Patient" name="aboutpatient" value="" required/>  
                             </div>
                         </div>
+                        
                         <button type="submit" class="btnSubmit" onclick="insertRecord()">Submit</button>
                     </div>
                 </div>
