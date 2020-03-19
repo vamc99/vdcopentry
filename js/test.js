@@ -61,10 +61,23 @@ function addteeth(teethType){
 }
 function insertRecord(){
     var _phone = document.getElementsByName("phone")[0].value;
+    var _date = document.getElementsByName("opdate")[0].value;
     var _patientName = document.getElementsByName("pname")[0].value;
     var _age = document.getElementsByName("age")[0].value;
-    var _patient = document.getElementsByName("patient")[0].value;
-    var _gender = document.getElementsByName("gender")[0].value;
+    var _patient;
+    if(document.getElementsByName("patient")[0].checked){
+        _patient = "new";
+    }else{
+        _patient = "old";
+    }
+
+    var _gender;
+    if(document.getElementsByName("gender")[0].checked){
+        _gender = "Male";
+    }else{
+        _gender = "Female";
+    }
+
     var _selectedTeeths = document.getElementsByName("teethnumber");
     var _selectProblem = document.getElementsByName("problem");
     var _aboutpatient = document.getElementsByName("aboutpatient")[0].value;
@@ -85,10 +98,14 @@ function insertRecord(){
         teethProblem : _arrSelecteProblem,
         aboutpatient : _aboutpatient
     };
-    db.collection("patient").doc(_phone).set({
+
+    // db.collection('rooms').doc('roomA')
+    //             .collection('messages').doc('message1');
+    
+    db.collection("patient").doc(_phone).collection(_date).doc(_patient)
+    .set({
         patientName : _patientName,
         age : _age,
-        patient : _patient,
         gender : _gender,
         teethnumber : _arrSelectedTeeth,
         teethProblem : _arrSelecteProblem,
@@ -105,11 +122,12 @@ function insertRecord(){
     // console.log(_patientName);
     // console.log(_phone);
     // console.log(_age);
-    // console.log(_patient);
-    // console.log(_gender);
+    //console.log(_patient);
+    //console.log(_gender);
     // console.log(_selectedTeeths.length);
     // console.log(_arrSelecteProblem);
     // console.log(_arrSelectedTeeth);
+    //console.log(_date);
     
     // selectedTeeths.forEach((e) => {
     //     console.log(e.value);
