@@ -1,6 +1,12 @@
+var user = sessionStorage.getItem("email");
+if (user != null) {
+    console.log(user);
+    //console.log("hello");
+}
+
 
 function addteeth(teethType){
-    
+
     //  Add Teeth Number Selector
     var divselector = document.createElement("div");
     divselector.classList.add("m-2");
