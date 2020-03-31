@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>OP Registration</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <!--===============================================================================================-->	
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <!--===============================================================================================-->	
@@ -9,11 +15,48 @@
         <!--===============================================================================================-->	
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!--===============================================================================================-->	
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+         <!--===============================================================================================-->
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>        
+        
         <link rel="stylesheet" type="text/css" href="css/opentry.css">
+
+
         <script src="js/opentry.js"></script>
+        <script src="js/config.js"></script>
+
     </head>
     <body>
-        <form>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Add New User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Patient Update</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <form onsubmit="return false">
             <div class="container register-form">
                 <div class="form">
                     <div class="note">
@@ -23,41 +66,64 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Patient Name" value="" required/>
+                                    <input type="date" class="form-control"  name="opdate" value="" required/>
                                 </div>
                             </div>                
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="Phone" value="" required/>
+                                    <input type="text" class="form-control" placeholder="Patient Name" name="pname" value="" required/>
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder="Phone" name="phone" value="" required/>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="Age" value="" required/>        
+                                    <input type="number" class="form-control" placeholder="Age" name="age" value="" required/>        
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                        </div><div class="row">
                             <div class="col-md-6">
                                 <div>
-                                    <label style="font-weight: bold;color: blue;">Gender</label>   
+                                    <label style="font-weight: bold;color: blue;">Patient</label>   
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label><input type="radio" name="optradio" value="Male"  class="radiobtn" checked>Male</label>
+                                <label><input type="radio" name="patient" value="new"  class="radiobtn" checked>New</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                    <label><input type="radio" name="optradio" value ="Female" class="radiobtn">Female</label>
+                                    <label><input type="radio" name="patient" value ="old" class="radiobtn">Old</label>
                             </div>
                         </div>
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <div>
+                                     <label style="font-weight: bold;color: blue;">Gender</label>   
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <label><input type="radio" name="gender" value="Male"  class="radiobtn" checked>Male</label>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-6">
+                                     <label><input type="radio" name="gender" value ="Female" class="radiobtn">Female</label>
+                             </div>
+                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div>
@@ -67,8 +133,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div id="maxilla">
-                                    <button type="button" id="maxillabtn" onclick="addteeth('maxilla')">Add</button><br><br>
+                                <div class="form-group" id="maxilla">
+                                    <button type="button" class="btn btn-primary btn-circle" id="maxillabtn" onclick="addteeth('maxilla')">
+                                        <i class="fa fa-plus fa-lg"></i>
+                                    </button>
                                 </div>  
                             </div>
                         </div>
@@ -81,16 +149,42 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div id="mandible">
-                                    <button type="button" id="mandiblebtn" onclick="addteeth('mandible')">Add</button><br><br>
+                                <div class="form-group" id="mandible">
+                                    <button type="button" class="btn btn-primary btn-circle" id="mandiblebtn" onclick="addteeth('mandible')"> 
+                                        <i class="fa fa-plus fa-lg"></i>
+                                    </button>
                                 </div> 
                             </div>
                         </div> 
                         <div class="row">
-                            <div class="col-md-6">           
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Remarks" name="aboutpatient" value="" required/>  
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="extraoral" value=""/>
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="file" class="form-control"  name="interaoral" value="" />
+                                </div>
+                            </div>                
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">  
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary" onclick="insertRecord()">Submit</button>
+                                </div> 
                             </div>
                         </div>
-                        <button type="submit" class="btnSubmit" onclick="insertRecord()">Submit</button>
+                        
                     </div>
                 </div>
             </div> 
