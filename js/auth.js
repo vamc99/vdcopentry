@@ -29,7 +29,7 @@ function toggleSignIn() {
     firebase.auth().onAuthStateChanged(user => {		
         // based on user role navigate to differnet pages
         if(user) {
-            sessionStorage.setItem("email", email);
+            //sessionStorage.setItem("email", email);
             console.log("onAuthStateChanged");
             navigate(email);
             //window.location.href = "opentry.html"; //After successful login, user will be redirected to home.html
@@ -46,22 +46,19 @@ function navigate(email){
     userRef.get().then(function(doc) {
         if (doc.exists) {
             roleRef = doc.data().role;
-            console.log(typeof(roleRef));
-            console.log(roleRef);
+            // console.log(typeof(roleRef));
+            // console.log(roleRef);
             //retrive menu list of the user
             var menuRef = db.collection("menu").doc(roleRef);
             var menuList = {};
             menuRef.get().then(function(docRef) {
                 if (docRef.exists) {
-                    //console.log(docRef.data());
-                    menuList = docRef.data();
-                    // set session object
-                    //
-                    //
                     
-                    // for(var index in menuList) {
-                    //     console.log(menuList[index]);
-                    //   }
+                    menuList = docRef.data();
+                    //console.log(menuList);
+                    // set session object
+                    sessionStorage.setItem("menuList", JSON.stringify(menuList));
+                    window.location.href = "home.html";
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");

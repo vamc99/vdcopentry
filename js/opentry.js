@@ -53,7 +53,6 @@ function addteeth(teethType){
     removeButton.classList.add("btn","btn-danger","btn-circle");
     itag.classList.add("fa", "fa-minus");
     removeButton.append(itag);
-    //removeButton.innerHTML ="R";
     removeButton.onclick= function(){
         divselector.remove()
     };
